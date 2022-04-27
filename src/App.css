@@ -88,9 +88,9 @@ body{
 .massageDescription{
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 20px;
+  width: 82%;
   margin-left: 68px;
-  margin-right: 36px;
 }
 
 .massageDescription > div{

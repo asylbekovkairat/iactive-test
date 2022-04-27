@@ -6,7 +6,7 @@ import { url } from './Api/Api';
 
 
 function App() {
-  const [masseges, setMassages] = useState()
+  const [masseges, setMassages] = useState([])
 
   useEffect(() => {
     const data = new FormData();

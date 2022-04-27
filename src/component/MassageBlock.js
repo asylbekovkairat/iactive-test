@@ -30,7 +30,9 @@ export default function MassageBlock({content, author, channel, attachments}) {
         </div>
         <div className="massageDescription">
           <div>
-            {content}
+            {
+              content ? content : <h2>there is nothing</h2>
+            }
           </div>
         </div>
       </div>
