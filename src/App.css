@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: #E5E5E5;
+}
+/* MassageBlock start */
+
+.blockWrapper{
+  width: 886px;
+  height: 315px;
+  background-color: #ffffff;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.massageBlock_header{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.massageBlock_headerLeft{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 25%;
+}
+
+.massageTime{
+  position: absolute;
+  top: 45px;
+  left: 14px;
+}
+
+.massageBlock_userDesc{
+  display: flex;
+  flex-direction: column;
+}
+
+.massageBlock_userDesc > .userName{
+  font-size: 16px;
+  line-height: 13.3px;
+  font-weight: 400;
+  color: #808080;
+}
+
+.massageBlock_userDesc > .desc{
+  font-weight: 400;
+  color: #808080;
+}
+
+.massageBlock_headerCenter{
+  width: 23%;
+  height: 36px;
+  grid-gap: 10px;   
+  display: flex;
+  align-items: center;
+}
+
+.massageBlock_headerCenter > div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  height: 32px;
+  border: 1px solid #0088EE;
+  font-size: 13px;
+  line-height: 11px;
+  color: #0088EE;
+}
+
+.massageBlock_headerRight{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 23%;
+}
+
+.massageBlock_headerRight > img{
+  width: 20px;
+  height: 20px;
+}
+
+.massageDescription{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 68px;
+  margin-right: 36px;
+}
+
+.massageDescription > div{
+  font-weight: 400;
+  font-size: 16px;
+  color: #333333;
+  font-weight: 400;
+}
+
+.massagesBlocks_wrapper{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center ;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* MassageBlock End */

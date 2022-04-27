@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import MassageBlock from './component/MassageBlock';
+import { useEffect, useState } from "react";
+import axios from "axios"
+import { url } from './Api/Api';
+
 
 function App() {
+  const [masseges, setMassages] = useState()
+
+  useEffect(() => {
+    const data = new FormData();
+    data.append("actionName", "MessagesLoad")
+    axios.post(url, data)
+    .then((res) => {
+      setMassages(res.data.Messages)
+    })
+  }, [])
+  console.log(masseges);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className="massagesBlocks_wrapper">
+      {
+        masseges.map((item) =><MassageBlock key={item.id} {...item}/> )
+      } 
     </div>
+    {/* <MassageBlock/>  */}
+    </>
   );
 }
 
