@@ -6,21 +6,23 @@ export default function MassageBlock({
   author,
   channel,
   attachments,
-  id
+  id,
+  date
 }) {
-
+  
+  // sort the messeges from newest to oldest
   // add adaptive markUp
   // deploy
-  
-  const [active, setActive] = useState(false)
-  const stars = JSON.parse(localStorage.getItem("star")) || []
-  const keys = Object.keys(stars)
+
+  const [active, setActive] = useState(false);
+  const stars = JSON.parse(localStorage.getItem("star")) || [];
+  const keys = Object.keys(stars);
   const starred = () => {
-    setActive(!active)
-  }
+    setActive(!active);
+  };
   useEffect(() => {
-    localStorage.setItem("star", JSON.stringify({ ...stars}))
-  }, [active])
+    localStorage.setItem("star", JSON.stringify({ ...stars }));
+  }, [active]);
   return (
     <>
       <div className="blockWrapper">
@@ -46,7 +48,7 @@ export default function MassageBlock({
         </div>
         <div className="massageDescription">
           <div className="massageTime">
-            <div>15:57</div>
+            <div>{date}</div>
           </div>
           <div>{content ? content : <h2>there is nothing</h2>}</div>
         </div>

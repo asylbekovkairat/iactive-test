@@ -1,8 +1,8 @@
 import './App.css';
 import MassageBlock from './component/MassageBlock';
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import axios from "axios"
-import { url } from './Api/Api';
+import Api, { url } from './Api/Api';
 
 
 function App() {
@@ -16,6 +16,14 @@ function App() {
       setMassages(res.data.Messages)
     })
   }, [])
+  // console.log(masseges.reverse())
+
+  // useMemo(() => {
+  //   Api.getFirstMessages()
+  //   .then((res) => {
+  //     console.log(res)
+  //   })
+  // }, [])
 
   return (
     <>
