@@ -12,9 +12,10 @@ body{
 
 .blockWrapper{
   width: 886px;
-  height: 315px;
+  height: 373px;
   background-color: #ffffff;
   padding: 10px;
+  margin: 30px;
 }
 
 .massageBlock_header{
@@ -54,14 +55,13 @@ body{
 }
 
 .massageBlock_headerCenter{
-  width: 23%;
   height: 36px;
   grid-gap: 10px;   
   display: flex;
   align-items: center;
 }
 
-.massageBlock_headerCenter > div{
+.massageBlock_headerCenter > button{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,31 +71,34 @@ body{
   font-size: 13px;
   line-height: 11px;
   color: #0088EE;
+  background-color: #ffffff;
+  cursor: pointer;
 }
 
 .massageBlock_headerRight{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 23%;
+  width: 48%;
 }
 
 .massageBlock_headerRight > img{
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .massageDescription{
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 82%;
   margin-left: 68px;
 }
 
 .massageDescription > div{
   font-weight: 400;
-  font-size: 16px;
+  font-size: 12px;
   color: #333333;
   font-weight: 400;
 }
@@ -105,5 +108,24 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: center ;
+}
+
+.attachments{
+  margin-left: 68px;
+  display: flex;
+  flex-direction: column;
+}
+
+.attachments > img{
+  height: 146px;
+  width: 259px;
+}
+
+.attachments > span{
+  font-size: 12px;
+  line-height: 9.8px;
+  color: #808080;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 /* MassageBlock End */

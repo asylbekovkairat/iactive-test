@@ -25,7 +25,6 @@ function App() {
         masseges.map((item) =><MassageBlock key={item.id} {...item}/> )
       } 
     </div>
-    {/* <MassageBlock/>  */}
     </>
   );
 }
