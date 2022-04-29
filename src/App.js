@@ -16,7 +16,6 @@ function App() {
       setMassages(res.data.Messages)
     })
   }, [])
-  console.log(masseges);
 
   return (
     <>

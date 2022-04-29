@@ -12,7 +12,6 @@ body{
 
 .blockWrapper{
   width: 886px;
-  height: 373px;
   background-color: #ffffff;
   padding: 10px;
   margin: 30px;
@@ -27,14 +26,9 @@ body{
 .massageBlock_headerLeft{
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 25%;
-}
-
-.massageTime{
-  position: absolute;
-  top: 45px;
-  left: 14px;
+  grid-gap: 15px; 
+  width: 23%;
+  margin-left: 11px;
 }
 
 .massageBlock_userDesc{
@@ -90,17 +84,16 @@ body{
 
 .massageDescription{
   display: flex;
-  justify-content: center;
   margin-top: 10px;
   width: 82%;
-  margin-left: 68px;
 }
 
 .massageDescription > div{
-  font-weight: 400;
-  font-size: 12px;
+  font-size: 16px;
   color: #333333;
   font-weight: 400;
+  margin-right: 6px;
+  margin-left: 7px;
 }
 
 .massagesBlocks_wrapper{
@@ -111,9 +104,14 @@ body{
 }
 
 .attachments{
-  margin-left: 68px;
+  margin-left: 62px;
   display: flex;
   flex-direction: column;
+}
+
+.attachments > video {
+  width:  300px;
+  height: 300px;
 }
 
 .attachments > img{
@@ -127,5 +125,6 @@ body{
   color: #808080;
   margin-top: 10px;
   margin-bottom: 15px;
+  cursor: pointer ;
 }
 /* MassageBlock End */
