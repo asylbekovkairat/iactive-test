@@ -7,22 +7,24 @@ export default function MassageBlock({
   channel,
   attachments,
   id,
-  date
+  date,
 }) {
-  
-  // sort the messeges from newest to oldest
-  // add adaptive markUp
-  // deploy
 
-  const [active, setActive] = useState(false);
-  const stars = JSON.parse(localStorage.getItem("star")) || [];
-  const keys = Object.keys(stars);
+  const [longContent, setLongContent] = useState(
+    content.length > 250 ? true : false
+  );
+  const [hideShow, setHideShow] = useState(false);
+  const stars = JSON.parse(localStorage.getItem("star"));
+  const [active, setActive] = useState(stars[id]);
+
   const starred = () => {
     setActive(!active);
   };
+
   useEffect(() => {
-    localStorage.setItem("star", JSON.stringify({ ...stars }));
+    localStorage.setItem("star", JSON.stringify({ ...stars, [id]: active }));
   }, [active]);
+
   return (
     <>
       <div className="blockWrapper">
@@ -41,28 +43,54 @@ export default function MassageBlock({
               <button>Правый</button>
             </div>
             <img src="./images/arrow.svg" alt="arrow" />
-            <img src="./images/Rectangle 50.svg" alt="rectangle" />
+            <img
+              onClick={() => setHideShow(!hideShow)}
+              src="./images/hide.svg"
+              alt="rectangle"
+            />
             <img src="./images/settings.svg" alt="settings" />
-            <img src="./images/star.svg" alt="star" />
+            <img
+              onClick={starred}
+              className={`star ${active ? "active" : ""}`}
+              src="./images/star.png"
+              alt="star"
+            />
           </div>
         </div>
-        <div className="massageDescription">
-          <div className="massageTime">
-            <div>{date}</div>
+        <div className="descWrapper">
+          <div className="massageDescription">
+            <div className="massageTime">
+              <div>
+                {new Date(date).getHours() + ":" + new Date(date).getMinutes()}
+              </div>
+            </div>
+            <div className={`content ${hideShow ? "active" : " "}`}>
+              {longContent ? content.slice(0, 250) + "..." : content}
+            </div>
           </div>
-          <div>{content ? content : <h2>there is nothing</h2>}</div>
-        </div>
-        <div className="attachments">
-          <span>Далее</span>
-          {attachments.map((item) =>
-            item.type === "video" ? (
-              <video controls>
-                <source src={item.url} type="video/mp4"></source>{" "}
-              </video>
+          <div className="attachments">
+            {longContent ? (
+              <span
+                className={`${hideShow ? "active" : " "}`}
+                onClick={() => {
+                  setLongContent(false);
+                }}
+              >
+                Далее
+              </span>
             ) : (
-              <img src={item.url} alt="#" />
-            )
-          )}
+              " "
+            )}
+            {attachments.map((item) =>
+              item.type === "video" ? (
+                <video key={item.type} controls>
+                  <source src={item.url} type="video/mp4"></source>{" "}
+                </video>
+              ) : (
+                <img key={item.type} src={item.url} alt="#" />
+              )
+            )}
+          </div>
         </div>
       </div>
     </>
