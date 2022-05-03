@@ -23,7 +23,7 @@ export default function MassageBlock({
 
   useEffect(() => {
     localStorage.setItem("star", JSON.stringify({ ...stars, [id]: active }));
-  }, [active]);
+  }, [active,stars,id]);
 
   return (
     <>

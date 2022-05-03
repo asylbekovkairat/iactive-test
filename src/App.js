@@ -2,6 +2,7 @@ import "./App.css";
 import MassageBlock from "./component/MassageBlock";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { url } from "./Api/Api";
 
 function App() {
   const [masseges, setMassages] = useState([]);
@@ -9,7 +10,7 @@ function App() {
   const messegesData = () => {
     const data = new FormData();
     data.append("actionName", "MessagesLoad");
-    axios.post(data).then((res) => {
+    axios.post(url, data).then((res) => {
       const sorted = res.data.Messages.sort(
         (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
       );
